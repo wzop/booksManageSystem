@@ -34,9 +34,12 @@ app.use(history());
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cors());
-// app.use(express.static('dist'));
+/*
+    设置静态资源目录
+    app.use(express.static('dist'));
+    app.use(express.static('bookpic'));
+*/
 app.use(expressJWT({ secret: secretkey, algorithms: ['HS256'] }).unless({ path: [/^\/login/, /^\/book\/picimg/] }))
-app.use(express.static('bookpic'));
 
 // token错误处理中间件
 app.use((err, req, res, next) => {
