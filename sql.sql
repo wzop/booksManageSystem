@@ -1,5 +1,5 @@
 /*
- Schema: books_manage_system
+ Schema name: books_manage_system
 */
 
 SET NAMES utf8mb4;
