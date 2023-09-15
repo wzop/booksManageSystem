@@ -3,7 +3,6 @@ import VueRouter from 'vue-router';
 // 用户路由
 const Home = () => import('../views/home.vue');
 const login = () => import('../views/login.vue');
-const bookSearch = () => import('../components/content/bookSearch.vue');
 const studentSearch = () => import('../views/homeChild/studentSearch.vue');
 const myLend = () => import('../views/homeChild/myLend.vue');
 const myInfo = () => import('../views/homeChild/myInfo.vue');

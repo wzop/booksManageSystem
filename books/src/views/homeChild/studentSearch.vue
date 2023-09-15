@@ -49,8 +49,8 @@ export default {
         }
       })
     },
-    checkEnter() {
-      if (event.keyCode == 13) {
+    checkEnter(event) {
+      if (event.key === 'Enter') {
         this.$refs.searchBtn.$el.click()
       }
     },

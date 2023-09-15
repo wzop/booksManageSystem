@@ -8,7 +8,7 @@ const path = require('path');
 const expressJWT = require('express-jwt');
 // history模式插件
 const history = require('connect-history-api-fallback');
-// 路由模块
+// 导入全部路由模块
 const login = require('./routes/login');
 const studentInfo = require('./routes/studentinfo');
 const studentLend = require('./routes/studentLend');
@@ -55,7 +55,7 @@ app.use((err, req, res, next) => {
         })
     }
 })
-
+// 注册路由中间件
 app.use('/login', login);
 app.use(checkToken, bookSearch);
 app.use('/student', [studentInfo, studentLend, studentChangePassword, lendBooks]);
@@ -66,5 +66,5 @@ app.get('/book/picimg/:picname', (req, res) => {
     res.sendFile(path.join(__dirname, '/bookpic/' + req.params.picname))
 })
 app.listen(8000, () => {
-    console.log('服务器开启成功');
+    console.log('服务器开启成功：http://127.0.0.1:8000');
 })

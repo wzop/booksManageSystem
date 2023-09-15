@@ -2,7 +2,7 @@ const express = require('express');
 const booksystem = require('../database/booksystem');
 const studentInfo = express.Router();
 studentInfo.get('/studentinfo', (req, res) => {
-    console.log('@@@', req.user)
+    console.log('studentInfo', req.user)
     // 根据id获取用户信息
     try {
         booksystem.query('select * from students where id=? and account=?', [req.user.userid, req.user.account], (err, results) => {

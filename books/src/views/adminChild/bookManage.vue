@@ -56,8 +56,8 @@ export default {
       })
     },
     // 检测是否按下回车
-    checkEnter() {
-      if (event.keyCode == 13) {
+    checkEnter(event) {
+      if (event.key === 'Enter') {
         this.$refs.findBook1.$el.click()
       }
     },
