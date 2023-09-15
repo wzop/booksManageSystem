@@ -73,8 +73,7 @@ export default {
           const books = res.data.data
           res.data.msg == '还书成功' ? (books.returnRes = true) : (books.returnRes = false)
           books.returnRes ? Message.success(res.data.msg) : Message.warning(res.data.msg)
-          this.getMyLend()
-          this.bookData.unshift(books)
+          this.lendBox.shift(books)
         }
       })
     },

@@ -57,8 +57,8 @@ app.use((err, req, res, next) => {
 })
 
 app.use('/login', login);
-app.use(checkToken, bookSearch, lendBooks);
-app.use('/student', [studentInfo, studentLend, studentChangePassword]);
+app.use(checkToken, bookSearch);
+app.use('/student', [studentInfo, studentLend, studentChangePassword, lendBooks]);
 app.use('/books', [bookRenew, bookReturn]);
 app.use('/admin', [getStudentInfo, lendBooks, allBooksInfo, deleteBook, addStudent, deleteStudent, adminChangePassword, addBooks]);
 // 响应图片

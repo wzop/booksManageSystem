@@ -18,7 +18,7 @@
         <div class="price">价格：￥{{ item.price }}</div>
         <div class="bookStatus">
           <div id="isLend">剩余可借:{{ item.remain }}本</div>
-          <el-button type="primary" v-if="item.remain === 1" @click="lendBtn(item.id)">借书</el-button>
+          <el-button type="primary" v-if="item.remain === 1" @click="lendBtn(item.bookid)">借书</el-button>
         </div>
       </div>
     </div>
@@ -56,13 +56,15 @@ export default {
     },
     lendBtn(bookid) {
       let studentid = this.$store.state.studentinfo.id
-      this.$axios.get('/admin/lend', { params: { bookid, studentid } }).then((res) => {
-        Message.warning('借书成功')
-        for (let i in this.searchResult) {
-          if (bookid === this.searchResult[i].id) {
-            this.searchResult[i].remain--
+      this.$axios.get('/student/lend', { params: { bookid, studentid } }).then((res) => {
+        if (res.data.status == 200) {
+          for (let i in this.searchResult) {
+            if (bookid === this.searchResult[i].bookid) {
+              this.searchResult[i].remain--
+              Message.warning('借书成功')
+            }
           }
-        }
+        } else Message.warning('error')
       })
     },
   },

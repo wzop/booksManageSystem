@@ -3,17 +3,20 @@ const baseURL = require('../baseURL');
 const booksystem = require('../database/booksystem');
 const lendBooks = express.Router();
 lendBooks.get('/lend', (req, res) => {
-    const time = Date.now();
-    booksystem.query(`update books set lenduserid=?, status=1,lenddate=?,returndate=? where id=?`,
-        [req.query.studentid, time, time + 1000000000, req.query.bookid], (err, result) => {
-            booksystem.query(`UPDATE students SET lendbook = CONCAT(lendbook, ',', ?) WHERE id = ?`,
-                [req.query.bookid, req.query.studentid], (err, result) => {
-                    res.send({
-                        status: 0,
-                        msg: '借书ok'
+    booksystem.query(`select * from books where bookid=?`, [req.query.bookid], (err, result) => {
+        if (result.length == 0) return res.status(401).send({ msg: '暂无该书籍，请检图书编号' })
+        const time = Date.now();
+        booksystem.query(`update books set lenduserid=?, status=1,lenddate=?,returndate=? where bookid=?`,
+            [req.query.studentid, time, time + 1000000000, req.query.bookid], (err, result) => {
+                booksystem.query(`UPDATE students SET lendbook = CONCAT(lendbook, ',', ?) WHERE bookid = ?`,
+                    [req.query.bookid, req.query.studentid], (err, result) => {
+                        res.send({
+                            status: 200,
+                            msg: '借书成功'
+                        })
                     })
-                })
-        })
+            })
+    })
 })
 lendBooks.get('/lendbooks', (req, res) => {
     // 查找图书
