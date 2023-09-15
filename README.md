@@ -6,6 +6,6 @@
 
 3.运行 node 目录下的 app.js
 
-4.在 books 目录下 npm run serve
+4.在 books 目录下在终端运行 npm run serve
 
 5.浏览器打开 http://127.0.0.1:8080/
