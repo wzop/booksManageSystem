@@ -68,10 +68,6 @@ const routes = [
         redirect: 'lendbook'
       },
       {
-        path: 'booksearch',
-        component: bookSearch
-      },
-      {
         path: 'lendbook',
         component: lendBook
       },

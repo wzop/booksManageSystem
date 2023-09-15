@@ -28,7 +28,6 @@
         <div class="delete" v-if="showDeleteBtn">
           <el-button type="danger" @click="open(item.id, index, item.status, item.picname)">删除</el-button>
         </div>
-
         <div class="other">
           <slot></slot>
         </div>
