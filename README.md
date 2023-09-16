@@ -1,11 +1,17 @@
-# booksManage
+# booksManageSystem
 
-1.搞数据库，请看 sql.sql
+#### 技术栈：vue2  eletment-ui 、nodeJs express mysql
 
-2.分别在 books 和 node 目录下 pnpm i
+1. 搞数据库，请看 sql.sql
 
-3.运行 node 目录下的 app.js
+2. 分别在 frontBooks 和 backNode 目录下 `pnpm i`
 
-4.在 books 目录下在终端运行 npm run serve
+3. `node ./backNode/app.js`
 
-5.浏览器打开 http://127.0.0.1:8080/
+4. frontBooks 目录终端执行` npm run serve`
+
+5. 浏览器打开 http://127.0.0.1:8080/
+
+
+
+> *借鉴：[vue-book-manage](https://github.com/84960390/vue-book-manage.git)*
