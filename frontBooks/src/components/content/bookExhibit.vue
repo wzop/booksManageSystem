@@ -8,7 +8,7 @@
           <div id="bookName">书名：{{ item.bookname }}</div>
           <div id="author">编者:{{ item.author }}</div>
           <div id="company">出版社：{{ item.company }}</div>
-          <div id="bookNum">图书类型：{{ item.bookid }}</div>
+          <div id="bookNum">图书编号：{{ item.bookid }}</div>
         </div>
         <div class="price">价格：￥{{ item.price }}</div>
         <div class="bookDate" v-if="showDate">
