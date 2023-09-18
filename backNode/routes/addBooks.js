@@ -1,6 +1,6 @@
 const express = require('express');
 const addBooks = express.Router();
-const multiparty = require('multiparty');
+const multiparty = require('multiparty'); // 文件上传模块
 const fs = require('fs');
 const path = require('path');
 const booksystem = require('../database/booksystem');
@@ -25,7 +25,7 @@ addBooks.post('/addbooks', (req, res) => {
                 })
             } else {
                 res.status(401).send({ msg: '添加失败,图书编号已存在' });
-                //   删除传入的文件
+                // 删除传入的文件
                 fs.unlink(files.picname[0].path, err => {
                     return err ? console.log(err) : console.log('success');
                 })
