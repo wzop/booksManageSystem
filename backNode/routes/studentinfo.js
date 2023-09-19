@@ -2,15 +2,14 @@ const express = require('express');
 const booksystem = require('../database/booksystem');
 const studentInfo = express.Router();
 studentInfo.get('/studentinfo', (req, res) => {
+    // req.user 是在 login.js 设置的 token 解析而来的
     console.log('studentInfo', req.user)
-    // 根据id获取用户信息
     try {
         booksystem.query('select * from students where id=? and account=?', [req.user.userid, req.user.account], (err, results) => {
             if (results.length === 0) {
-                return res.status(401).send({
-                    msg: '登录已过期',
-                })
+                return res.status(401).send({ msg: '登录已过期' })
             };
+            // 解构赋值
             const userinfo = { ...results[0], password: null, status: null, headurl: null };
             let allLendbooks = [];
             //  用户借阅书籍的总数
@@ -42,13 +41,11 @@ studentInfo.get('/studentinfo', (req, res) => {
             }
         })
     } catch {
-        res.status(401).send({
-            msg: '登录已过期',
-        })
+        res.status(401).send({ msg: '登录已过期' })
     }
 })
+// 获取所有用户信息
 studentInfo.get('/getallstudent', (req, res) => {
-    // 获取所有用户信息
     booksystem.query('select * from students', (err, results) => {
         const userinfo = results.map(item => {
             return { ...item, password: null, status: null, headurl: null }
@@ -56,8 +53,8 @@ studentInfo.get('/getallstudent', (req, res) => {
         return res.status(200).send({ data: userinfo })
     })
 })
+// 修改用户信息
 studentInfo.post('/changeStudentInfo', (req, res) => {
-    // 修改用户信息
     try {
         booksystem.query('update students set ? where id=?', [req.body, req.body.id], (err, results) => {
             if (results && results.affectedRows) {

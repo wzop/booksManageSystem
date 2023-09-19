@@ -38,17 +38,6 @@ export default {
         })
         .catch((err) => console.log(err.response))
     },
-    checKAdminToken() {
-      this.$axios
-        .get('/checktoken')
-        .then((res) => {
-          if (res.data.data.user !== 'student') {
-            window.localStorage.token = ''
-            this.$router.replace('/login')
-          }
-        })
-        .catch((err) => console.log(err))
-    },
   },
 }
 </script>
