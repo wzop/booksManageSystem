@@ -11,7 +11,6 @@
           <td>班级:</td>
           <td>{{ $store.state.studentinfo.class }}</td>
         </tr>
-
         <tr>
           <td>学号:</td>
           <td>{{ $store.state.studentinfo.account }}</td>
@@ -34,6 +33,7 @@
 </template>
 
 <script>
+// 需手动刷新数据
 import mainTopBar from '../../components/common/mainTopBar.vue'
 export default {
   name: 'myinfo',

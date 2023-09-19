@@ -1,6 +1,6 @@
 <template>
   <div class="bookSearch">
-    <main-top-bar classify="图书搜索(student)"></main-top-bar>
+    <main-top-bar classify="图书搜索"></main-top-bar>
     <div class="searchBox">
       <input type="text" class="search" v-model="input" placeholder="请输入图书名进行查询" @keyup="checkEnter" />
       <el-button type="primary" icon="el-icon-search" @click="bookSearch(input)" ref="searchBtn">搜索</el-button>
@@ -38,6 +38,9 @@ export default {
   },
   components: {
     mainTopBar,
+  },
+  mounted() {
+    this.bookSearch('')
   },
   methods: {
     // 搜索书籍

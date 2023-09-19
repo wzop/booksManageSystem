@@ -25,7 +25,6 @@ const deleteStudent = require('./routes/deleteStudent');
 const adminChangePassword = require('./routes/adminChangePassword');
 const checkToken = require('./routes/checkToken');
 const addBooks = require('./routes/addBooks');
-// 自定义变量
 
 // token秘钥
 const secretkey = 'bookmanage';
@@ -57,10 +56,10 @@ app.use((err, req, res, next) => {
 })
 // 注册路由中间件
 app.use('/login', login);
-app.use(checkToken, bookSearch);
+app.use(bookSearch);
 app.use('/student', [studentInfo, studentLend, studentChangePassword, lendBooks]);
 app.use('/books', [bookRenew, bookReturn]);
-app.use('/admin', [getStudentInfo, lendBooks, allBooksInfo, deleteBook, addStudent, deleteStudent, adminChangePassword, addBooks]);
+app.use('/admin', [getStudentInfo, lendBooks, allBooksInfo, deleteBook, addStudent, deleteStudent, adminChangePassword, checkToken, addBooks]);
 // 响应图片
 app.get('/book/picimg/:picname', (req, res) => {
     res.sendFile(path.join(__dirname, '/bookpic/' + req.params.picname))
