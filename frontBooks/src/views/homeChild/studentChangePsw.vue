@@ -7,7 +7,7 @@
 <script>
 import changePassword from '../../components/content/changePassword.vue'
 export default {
-  naem: 'changePsw',
+  name: 'changePsw',
   components: { changePassword },
 }
 </script>
