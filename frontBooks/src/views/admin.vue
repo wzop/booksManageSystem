@@ -24,7 +24,7 @@ export default {
   methods: {
     checKAdminToken() {
       this.$axios
-        .get('/checktoken')
+        .get('admin/checktoken')
         .then((res) => {
           if (res.data.data.user !== 'admin') {
             window.localStorage.token = ''
