@@ -29,7 +29,6 @@ VueRouter.prototype.replace = function replace(to) {
   return VueRouterReplace.call(this, to).catch(err => err);
 };
 
-
 const routes = [
   {
     path: '/',

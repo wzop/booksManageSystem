@@ -57,7 +57,7 @@
 import mainTopBar from '../common/mainTopBar.vue'
 import { Message } from 'element-ui'
 export default {
-  naem: 'changePsw',
+  name: 'changePsw',
   components: { mainTopBar },
   data() {
     return {

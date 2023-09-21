@@ -18,7 +18,6 @@ bookSearch.get('/booksearch', (req, res) => {
       } else {
         searchResult[booknumber.indexOf(item.booknumber)].sum++;
         if (item.status == 0) { searchResult[booknumber.indexOf(item.booknumber)].remain++ };
-
       }
     });
     if (result.length == 0) {
